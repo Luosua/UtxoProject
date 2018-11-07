@@ -72,11 +72,7 @@ describe('AppController', () => {
             [utxoSecond, 0.0],
           ])('.findSuitableUtxo(%o, %i, %i)', (utxo, orderValue, expected) => {
              test('', () => {
-              function findUTXO(){
-                module.findSuitableUtxo(utxo, orderValue);
-              }
-
-                expect(findUTXO).toThrow();
+                expect(module.findSuitableUtxo(utxo, orderValue)).toThrow();
              });
          })
           });

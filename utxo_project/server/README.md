@@ -2,7 +2,7 @@
 
 ## Description
 
-Gets UTXO from a BTC address and returns the most suitable UTXO for the specified order amount.
+Nest MEAN Server
 
 ## Installation
 
