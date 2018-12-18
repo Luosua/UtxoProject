@@ -1,0 +1,32 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h1>UTXO form</h1>
+    <form (ngSubmit)="getUtxo()" #utxoForm="ngForm">
+      <div class="form-group">
+          <label for="addressTextbox">Enter a BTC address:</label>
+          <input type="text" class="form-control" id="addressTextbox" name="addressTextbox" #addressTextbox="ngModel"
+          [(ngModel)]="btcAddress" required minlength="34" maxlength="34">  
+          <div [hidden]="addressTextbox.valid || addressTextbox.pristine" class="alert alert-danger">
+              <div *ngIf="addressTextbox.errors.required">
+                  BTC address is required.
+                </div>
+                <div *ngIf="addressTextbox.errors.minlength">
+                    BTC address must be 34 characters long.
+                </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="orderValueTextbox">Enter an order value:</label>
+          <input type="text" class="form-control" id="orderValueTextbox" name="orderValueTextbox" #orderValueTextbox="ngModel"
+          [(ngModel)]="orderValue" required appForbiddenValue>  
+          <div [hidden]="orderValueTextbox.valid || orderValueTextbox.pristine" class="alert alert-danger">Order value is incorrect
+            </div>
+      </div>
+        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid" id="submitButton">Submit</button>
+        <div class="form-group">
+          <p id="utxo"
+          [(ngModel)]="title" name="utxo"></p>
+        </div>
+    </form>
+</div>
+
